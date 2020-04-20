@@ -9,7 +9,7 @@ import com.tigerbk.kakaoByTigerBk.models.CardPayDealInfoEntity;
 
 public interface CardPayDealInfoRepository extends JpaRepository<CardPayDealInfoEntity, String> {
 
-	
+	// 취소된 총 금액+vat 구하기
 	@Query(value = "SELECT Sum(tb.card_amount) as cancelTotalAmt , Sum(tb.card_vat) as cancelTotalVat "
 			+ " FROM card_pay_deal_info_entity tb where  tb.pdeal_key = :pdealKey and tb.biz_type=:bizType"
 			+ " group by tb.pdeal_key", nativeQuery = true)
